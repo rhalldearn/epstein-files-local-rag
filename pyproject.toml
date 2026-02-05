@@ -1,0 +1,30 @@
+[project]
+name = "epstein-files-chatbot"
+version = "0.1.0"
+description = "RAG chatbot for querying Epstein Files using local Llama 3.2 3B"
+requires-python = ">=3.11"
+dependencies = [
+    "llama-cpp-python>=0.2.0",
+    "sentence-transformers>=2.2.0",
+    "chromadb>=0.4.0",
+    "pymupdf>=1.23.0",
+    "rich>=13.0.0",
+    "tqdm>=4.65.0",
+    "torch>=2.0.0",
+    "numpy>=1.24.0",
+    "requests>=2.31.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src", "scripts"]
+
+[tool.uv]
+dev-dependencies = []
+
+[project.scripts]
+epstein-chat = "src.chatbot:main"
+epstein-init = "scripts.initialize:main"
