@@ -3,25 +3,18 @@
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-## ⚠️ CONTENT WARNING
-
-**The documents processed by this tool contain detailed descriptions and testimony related to serious crimes, including the sexual exploitation and abuse of minors.** The content is graphic, disturbing, and may be triggering for survivors of abuse.
-
-This tool is intended for:
-- 📰 **Journalists** conducting investigations
-- ⚖️ **Legal professionals** reviewing court records
-- 🔍 **Researchers** studying criminal justice or abuse prevention
-- 📚 **Educators** teaching about institutional accountability
-
-**If you are a survivor of sexual abuse, please consider whether engaging with this material is appropriate for your wellbeing.** Resources are available at [RAINN.org](https://www.rainn.org/) (1-800-656-4673).
-
-This project processes publicly released U.S. Department of Justice documents solely for transparency, research, and educational purposes. We condemn all forms of abuse and exploitation.
-
----
-
-> **Local AI-powered chatbot for querying the 525 DOJ Epstein Files documents using Retrieval Augmented Generation (RAG)**
+> **Local AI-powered chatbot for querying the DOJ Epstein Files documents using Retrieval Augmented Generation (RAG)**
 
 Chat with the Epstein Files using a completely local AI system powered by Llama 3.2 3B and ChromaDB vector search. No cloud services, no API keys, no data leaves your machine.
+
+
+## ⚠️ CONTENT WARNING
+
+- If you are a survivor of sexual abuse, please consider whether engaging with this material is appropriate for your wellbeing.
+- The Epstein documents processed by this tool contain detailed descriptions and testimony related to serious crimes, including the sexual exploitation and abuse of minors.
+- The content is graphic, disturbing, and may be triggering for survivors of abuse.
+
+---
 
 ## ✨ Features
 
@@ -67,7 +60,7 @@ python -m src.chatbot
 
 ## 📥 Downloading the PDF Files
 
-The chatbot requires the 525 PDF documents from the DOJ's Epstein Files Transparency Act. We recommend using the excellent downloader by [@Surebob](https://github.com/Surebob):
+The chatbot requires the PDF documents from the DOJ's Epstein Files Transparency Act. We recommend using the excellent downloader by [@Surebob](https://github.com/Surebob):
 
 **[Surebob's Epstein Files Downloader](https://github.com/Surebob/epstein-files-downloader)**
 
