@@ -9,6 +9,10 @@ Chat with the Epstein Files using a completely local AI system powered by Llama 
 
 **TODO:**
 - [ ] Testing with new download approach.
+- [ ] Chatbot answers are poor. Needs improvement... suggestions welcome.
+- [ ] Sanitise the verbose Claude documentation to something smaller and more easily digestable for a human!
+
+**Aim:** This repository is primarily focused on learning to use open source AI models with real world datasets. The DOJ files are messy, and it highlights how much work is required on the data compared to the AI model's themselves before they become useful.
 
 ## ⚠️ CONTENT WARNING
 
