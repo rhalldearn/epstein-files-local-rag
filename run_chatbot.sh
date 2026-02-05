@@ -11,10 +11,10 @@ echo ""
 if [ ! -f "processed_chunks.json" ] || [ ! -d "chroma_db" ]; then
     echo "⚠️  Chatbot not initialized. Running initialization..."
     echo ""
-    python -m scripts.initialize
+    python3 -m scripts.initialize
     echo ""
 fi
 
 echo "Starting chatbot..."
 echo ""
-python -m src.chatbot
+python3 -m src.chatbot
