@@ -7,6 +7,7 @@
 
 Chat with the Epstein Files using a completely local AI system powered by Llama 3.2 3B and ChromaDB vector search. No cloud services, no API keys, no data leaves your machine.
 
+TODO: Still needs testing with new downloading approach.
 
 ## ⚠️ CONTENT WARNING
 
@@ -31,7 +32,7 @@ Chat with the Epstein Files using a completely local AI system powered by Llama 
 
 1. **Python 3.11+** installed
 2. **NVIDIA GPU** with CUDA support (recommended, but CPU works)
-3. **525 PDF files** from DOJ Epstein Files ([download instructions below](#downloading-the-pdf-files))
+3. **files** from DOJ Epstein Files ([download instructions below](#downloading-the-files))
 
 ### Installation - I am using Ubuntu with Nvidia RTX4070 GPU
 
@@ -58,9 +59,9 @@ cd epstein-files-local-rag
 python -m src.chatbot
 ```
 
-## 📥 Downloading the PDF Files
+## 📥 Downloading the Files
 
-The chatbot requires the PDF documents from the DOJ's Epstein Files Transparency Act. We recommend using the excellent downloader by [@Surebob](https://github.com/Surebob):
+The chatbot requires the DOJ documents from the DOJ's Epstein Files Transparency Act. We recommend using the excellent downloader by [@Surebob](https://github.com/Surebob):
 
 **[Surebob's Epstein Files Downloader](https://github.com/Surebob/epstein-files-downloader)**
 
@@ -72,8 +73,6 @@ This tool provides:
 - ✅ Checksum verification
 
 Take a long time to download!
-
-TODO: Still needs testing with new downloading approach.
 
 After downloading, ensure the files are in: `./epstein_files/DataSet_1/` through `DataSet_12/`
 
