@@ -7,7 +7,8 @@
 
 Chat with the Epstein Files using a completely local AI system powered by Llama 3.2 3B and ChromaDB vector search. No cloud services, no API keys, no data leaves your machine.
 
-TODO: Still needs testing with new downloading approach.
+TODO:
+- [ ] Testing with new download approach.
 
 ## ⚠️ CONTENT WARNING
 
