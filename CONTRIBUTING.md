@@ -48,18 +48,6 @@ Thank you for your interest in contributing! This project welcomes contributions
    - Multi-language OCR support
    - Table extraction
 
-### Documentation
-
-9. **More Examples**
-   - Video tutorials
-   - Usage examples with different query types
-   - Troubleshooting guide
-
-10. **API Documentation**
-    - Complete docstrings
-    - Usage examples for each module
-    - Architecture diagrams
-
 ## 🚀 Getting Started
 
 ### 1. Fork and Clone
