@@ -7,6 +7,12 @@
 
 Chat with the Epstein Files using a completely local AI system powered by Llama 3.2 3B and ChromaDB vector search. No cloud services, no API keys, no data leaves your machine.
 
+**TODO:**
+- [ ] Testing with new download approach.
+- [ ] Chatbot answers are poor. Needs improvement... suggestions welcome.
+- [ ] Sanitise the verbose Claude documentation to something smaller and more easily digestable for a human!
+
+**Aim** - This repository is focused on using open source AI models with real world datasets. The DOJ files are messy, and it highlights how much work is required on the data before an AI model can be used effectively.
 
 ## ⚠️ CONTENT WARNING
 
@@ -31,14 +37,14 @@ Chat with the Epstein Files using a completely local AI system powered by Llama 
 
 1. **Python 3.11+** installed
 2. **NVIDIA GPU** with CUDA support (recommended, but CPU works)
-3. **525 PDF files** from DOJ Epstein Files ([download instructions below](#downloading-the-pdf-files))
+3. **files** from DOJ Epstein Files ([download instructions below](#downloading-the-files))
 
-### Installation
+### Installation - I am using Ubuntu with Nvidia RTX4070 GPU
 
 ```bash
 # Clone the repository
-git clone https://github.com/rhalldearn/epstein-files.git
-cd epstein-files
+git clone https://github.com/rhalldearn/epstein-files-local-rag.git
+cd epstein-files-local-rag
 
 # Run the installation script
 ./install.sh
@@ -58,9 +64,9 @@ cd epstein-files
 python -m src.chatbot
 ```
 
-## 📥 Downloading the PDF Files
+## 📥 Downloading the Files
 
-The chatbot requires the PDF documents from the DOJ's Epstein Files Transparency Act. We recommend using the excellent downloader by [@Surebob](https://github.com/Surebob):
+The chatbot requires the DOJ documents from the DOJ's Epstein Files Transparency Act. We recommend using the excellent downloader by [@Surebob](https://github.com/Surebob):
 
 **[Surebob's Epstein Files Downloader](https://github.com/Surebob/epstein-files-downloader)**
 
@@ -70,6 +76,8 @@ This tool provides:
 - 🌐 Web scraping for individual PDFs from Dataset 9
 - ▶️ Resume capability for interrupted downloads
 - ✅ Checksum verification
+
+Take a long time to download!
 
 After downloading, ensure the files are in: `./epstein_files/DataSet_1/` through `DataSet_12/`
 
@@ -92,16 +100,12 @@ User Question
 - **LLM**: Llama 3.2 3B Instruct (Q4_K_M quantized) via llama-cpp-python
 - **Interface**: Rich CLI with commands (`/help`, `/sources`, `/info`)
 
-## 📖 Usage Examples
+## 📖 Usage Examples - Needs data munging improvements to be useful!
 
 ```
-> Tell me about Epstein's properties
+> Tell me about Epstein's communication with Mandelson.
 
-The documents mention several properties including:
-- Palm Beach residence on El Brillo Way
-- Manhattan townhouse at 9 E 71st Street
-- New Mexico ranch near Stanley
-- Paris apartment at 22 Avenue Foch
+blah blah....
 
 Sources: DataSet_3/EFTA00012345.pdf (p. 14), DataSet_5/EFTA00023456.pdf (p. 7)
 
