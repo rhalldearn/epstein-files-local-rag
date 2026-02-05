@@ -44,7 +44,7 @@ Chat with the Epstein Files using a completely local AI system powered by Llama 
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/epstein-files.git
+git clone https://github.com/rhalldearn/epstein-files.git
 cd epstein-files
 
 # Run the installation script

@@ -258,7 +258,7 @@ perf(vector): optimize batch embedding generation
 
 ### Before Submitting
 
-1. Check existing [Issues](https://github.com/yourusername/epstein-files/issues)
+1. Check existing [Issues](https://github.com/rhalldearn/epstein-files/issues)
 2. Verify you're using the latest version
 3. Test with a minimal reproducible example
 
@@ -311,8 +311,8 @@ When reviewing PRs, we look for:
 
 ## 📞 Getting Help
 
-- **Questions**: Open a [Discussion](https://github.com/yourusername/epstein-files/discussions)
-- **Bugs**: Open an [Issue](https://github.com/yourusername/epstein-files/issues)
+- **Questions**: Open a [Discussion](https://github.com/rhalldearn/epstein-files/discussions)
+- **Bugs**: Open an [Issue](https://github.com/rhalldearn/epstein-files/issues)
 - **Chat**: Join our Discord (coming soon)
 
 ## 🎓 Learning Resources
