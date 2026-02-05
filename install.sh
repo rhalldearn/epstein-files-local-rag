@@ -16,12 +16,23 @@ echo ""
 
 # Check Python version
 echo -e "${YELLOW}Checking Python version...${NC}"
-if ! command -v python3.11 &> /dev/null; then
-    echo -e "${RED}✗ Python 3.11+ not found${NC}"
+if ! command -v python3 &> /dev/null; then
+    echo -e "${RED}✗ python3 not found${NC}"
     echo "Please install Python 3.11 or higher"
     exit 1
 fi
-echo -e "${GREEN}✓ Python found: $(python3.11 --version)${NC}"
+
+# Get Python version and check if it's 3.11+
+PYTHON_VERSION=$(python3 -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')
+PYTHON_MAJOR=$(echo $PYTHON_VERSION | cut -d. -f1)
+PYTHON_MINOR=$(echo $PYTHON_VERSION | cut -d. -f2)
+
+if [ "$PYTHON_MAJOR" -lt 3 ] || { [ "$PYTHON_MAJOR" -eq 3 ] && [ "$PYTHON_MINOR" -lt 11 ]; }; then
+    echo -e "${RED}✗ Python $PYTHON_VERSION found, but 3.11+ required${NC}"
+    echo "Please install Python 3.11 or higher"
+    exit 1
+fi
+echo -e "${GREEN}✓ Python $PYTHON_VERSION found${NC}"
 
 # Check NVIDIA GPU
 echo -e "\n${YELLOW}Checking for NVIDIA GPU...${NC}"
@@ -65,7 +76,7 @@ elif [ "$CHOICE" = "2" ]; then
     # Create virtual environment
     if [ ! -d "venv" ]; then
         echo -e "${YELLOW}Creating virtual environment...${NC}"
-        python3.11 -m venv venv
+        python3 -m venv venv
     fi
 
     # Activate virtual environment
@@ -89,7 +100,7 @@ fi
 
 # Run setup test
 echo -e "\n${YELLOW}Running setup verification...${NC}"
-python -m scripts.test_setup
+python3 -m scripts.test_setup
 
 # Check if initialization is needed
 if [ ! -f "processed_chunks.json" ] || [ ! -d "chroma_db" ]; then
@@ -104,10 +115,10 @@ if [ ! -f "processed_chunks.json" ] || [ ! -d "chroma_db" ]; then
     if [ "$INIT_CHOICE" = "y" ] || [ "$INIT_CHOICE" = "Y" ]; then
         echo -e "\n${YELLOW}Starting initialization...${NC}"
         echo -e "${CYAN}This will take 5-10 minutes${NC}"
-        python -m scripts.initialize
+        python3 -m scripts.initialize
     else
         echo -e "\n${YELLOW}Initialization skipped${NC}"
-        echo "Run later with: ${CYAN}python -m scripts.initialize${NC}"
+        echo "Run later with: ${CYAN}python3 -m scripts.initialize${NC}"
     fi
 fi
 
@@ -121,7 +132,7 @@ echo -e "  ${YELLOW}./run_chatbot.sh${NC}"
 echo ""
 echo -e "or"
 echo ""
-echo -e "  ${YELLOW}python -m src.chatbot${NC}"
+echo -e "  ${YELLOW}python3 -m src.chatbot${NC}"
 echo ""
 echo -e "${CYAN}For help:${NC}"
 echo -e "  ${YELLOW}cat QUICKSTART.md${NC}"
