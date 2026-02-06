@@ -48,3 +48,6 @@ Thumbs.db
 
 # Logs
 *.log
+processed_chunks_checkpoint.json
+.gitignore
+processed_chunks_temp.jsonl

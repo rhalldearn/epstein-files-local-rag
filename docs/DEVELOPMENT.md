@@ -38,18 +38,25 @@ User Question
 Smaller chunks = more precise retrieval, less context per chunk
 Larger chunks = more context per chunk, less precise retrieval
 
-**Edit `scripts/initialize.py`:**
+**Edit `scripts/initialize_background.py` or `scripts/initialize.py`:**
 ```python
 processor = DocumentProcessor(
-    chunk_size=256,    # Smaller chunks
-    overlap=25         # Adjust overlap proportionally
+    chunk_size=256,         # Smaller chunks
+    overlap=25,             # Adjust overlap proportionally
+    checkpoint_interval=100 # Save every N files
 )
 ```
 
 **Re-run initialization:**
 ```bash
+# With checkpoints (recommended for large datasets)
+./run_processing.sh background
+
+# Or legacy mode
 python -m scripts.initialize
 ```
+
+**Note:** Changing chunk_size or overlap will trigger automatic reprocessing from scratch (checkpoint detects parameter changes).
 
 ### 2. Change Retrieval Count
 

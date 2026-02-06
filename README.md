@@ -27,9 +27,10 @@ Chat with the Epstein Files using a completely local AI system powered by Llama 
 - 🤖 **Local LLM**: Runs Llama 3.2 3B quantized model (~2GB) entirely on your GPU/CPU
 - 🔍 **Fast Semantic Search**: ChromaDB vector storage with efficient retrieval
 - 📄 **OCR Support**: Optional Tesseract OCR extracts text trapped in images (2-3x more content)
-- 💾 **No Size Limits**: ChromaDB handles any dataset size
+- 💾 **Large Scale**: Handles 43k+ PDFs with checkpoint/resume capability
 - 📚 **Source Attribution**: Every answer includes page numbers and source documents
 - 🎨 **Rich CLI**: Beautiful terminal interface with syntax highlighting
+- ⏸️ **Resume Processing**: Interrupt and resume PDF processing anytime with automatic checkpoints
 
 ## 🚀 Quick Start
 
@@ -49,10 +50,19 @@ cd epstein-files-local-rag
 # Run the installation script
 ./install.sh
 
+# Process PDFs in background (recommended for 43k+ files)
+# This takes 7-15 hours but can be interrupted and resumed anytime
+./run_processing.sh background --ocr    # With OCR (recommended)
+# or
+./run_processing.sh background          # Standard mode (faster)
+
+# Check progress anytime
+./run_processing.sh status
+
 # This will:
 # - Install dependencies (including CUDA support)
 # - Download the Llama 3.2 3B model (~2GB)
-# - Process PDFs and build the searchable index
+# - Process PDFs and build the searchable index with checkpoints
 ```
 
 ### Running the Chatbot
@@ -73,13 +83,13 @@ The chatbot requires the DOJ documents from the DOJ's Epstein Files Transparency
 This tool provides:
 - ⚡ Fast torrent downloads via Archive.org mirrors
 - 📦 Direct ZIP downloads for datasets 1-8 and 12
-- 🌐 Web scraping for individual PDFs from Dataset 9
+- 🌐 Web scraping for individual PDFs from Dataset 9 and 11
 - ▶️ Resume capability for interrupted downloads
 - ✅ Checksum verification
 
-Take a long time to download!
+**Note:** Downloads take considerable time! The latest downloader organizes files into `dataset9-pdfs/` (40,876 files) and `dataset11-pdfs/` (2,509 files) folders. The RAG chatbot automatically discovers all PDFs regardless of folder structure.
 
-After downloading, ensure the files are in: `./epstein_files/DataSet_1/` through `DataSet_12/`
+After downloading with Surebob's tool, the files will be organized in `./epstein_files/` with subdirectories like `dataset9-pdfs/` and `dataset11-pdfs/`.
 
 ## 🧠 How It Works
 

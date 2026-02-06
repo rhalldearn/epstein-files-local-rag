@@ -6,7 +6,8 @@ Get the Epstein Files chatbot running in 3 steps.
 
 - Python 3.11+
 - NVIDIA GPU with CUDA support (RTX 4070 or similar)
-- ~3GB free disk space
+- ~20GB free disk space (for 43k+ PDFs and index)
+- Several hours for initial processing (can be done in background)
 
 ## Step 1: Install Dependencies
 
@@ -55,13 +56,31 @@ This will check:
 Process documents and download the model:
 
 ```bash
-python -m scripts.initialize
+# Recommended: Run in background with checkpoints
+./run_processing.sh background --ocr    # With OCR (best quality)
+# or
+./run_processing.sh background          # Standard (faster)
+
+# Check progress anytime
+./run_processing.sh status
+
+# View logs
+./run_processing.sh logs
+```
+
+**Alternative: Foreground processing (can interrupt with Ctrl+C and resume)**
+
+```bash
+python -m scripts.initialize_background --ocr
 ```
 
 This will:
-- Process all 525 PDF files (~5 minutes)
+- Process all 43,383 PDF files (7-15 hours, depending on OCR)
+- Save progress every 100 files (can resume if interrupted)
 - Download Llama 3.2 3B model (~2GB)
 - Build the vector search index
+
+**Note:** The old `scripts/initialize.py` still works but doesn't support checkpoints.
 
 ## Step 4: Start Chatting
 
